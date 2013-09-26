@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko" ng-app="todo" ng-controller="ItemsCtrl">
+	<head>
+		<meta charset="UTF-8">
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+		<script src="lib/angular-1.0.6/angular.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+		/*
+			var todoList = [
+			{done : true, title : "rails 공부하기"},
+			{done : false, title : "AngularJS 공부하기"},
+			{done : false, title : "bootstrap 공부하기"}
+			];
+
+			function main($scope) {
+				$scope.name = "연식";
+				$scope.todoList = todoList;
+				$scope.addNewTodo = function(newTitle) {
+					todoList.push({done:false, title:newTitle});
+				};
+				$scope.archive = function() {
+					angular.forEach($scope.todoList, function(value, key) {
+						if(value.done) {
+							$scope.todoList.splice(key, key+1);
+						}
+					});
+				};
+				$scope.remain = function() {
+					var remainCount = 0;
+					angular.forEach($scope.todoList, function(value, key) {
+						if(value.done === false) {
+							remainCount++;
+						}
+					});
+					return remainCount;
+				}
+			}
+		*/
+		</script>
+		<title>TODO App Demo</title>
+	</head>
+
+	<div>
+		<body class="well">
+			<h1>Todo App</h1>
+			<p>Remaining <strong>{{remainCount}}</strong> of <strong>{{items.length}}</strong>[ <a href="" ng-click="archive()">archive</a> ]</p>
+			<ul class="unstyled" ng-repeat="item in items">
+				<li><input type="checkbox" ng-model="item.done" ng-click="remain()">{{item.title}}</li>
+			</ul>
+			<!--
+			<ul class="unstyled">
+				<li><input type="checkbox">공부하기</li>
+				<li><input type="checkbox">잠자기</li>
+			</ui>
+			-->
+			<form name="newItemForm" class="form-inline" action="">
+				<div class="control-group">
+					<div class="controls">
+						<input type="text" name="newItemText" ng-model="item.title">
+					</div>
+				</div>
+				<button id="add" class="btn btn-primary input-large"
+				ng-click="addPost()">add</button>
+			</form>
+
+			<p>{{status}}</p>
+		</body>
+	</div>
+</html>
